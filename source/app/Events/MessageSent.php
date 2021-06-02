@@ -14,7 +14,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageSent implements ShouldBroadcastNow
+class MessageSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -56,7 +56,7 @@ class MessageSent implements ShouldBroadcastNow
     public function broadcastWith()
     {
         return [
-            'key' => 'value'
+            $this->user => $this->message
         ];
     }
 }

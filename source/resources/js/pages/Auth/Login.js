@@ -5,8 +5,6 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 import './Auth.css'
 
-
-
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -23,7 +21,6 @@ const Login = () => {
     async function login(options) {
         try {
             const loginResp = await axios.post("/login", options);
-            setCurrentUser({ email: options.email, name: options.name } );
             return loginResp;
         } catch (e) {
             return e.response;
@@ -33,7 +30,9 @@ const Login = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault()
         const res = await login(options)
-
+        const data = {"user": JSON.parse(res.config.data)}
+        const user = data.user.email
+        setCurrentUser({user})
 
         if (res.data.message == 'CSRF token mismatch.') {
             document.location.reload()
@@ -42,10 +41,8 @@ const Login = () => {
             setError(res.data.errors)
         } else {
             setError('')
-            alert('success')
-            // history.push("/chat")
+            history.push("/chat")
         }
-
     }
 
     return (
@@ -90,5 +87,4 @@ const Login = () => {
         </div>
     )
 }
-
 export default Login

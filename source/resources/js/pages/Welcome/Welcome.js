@@ -11,7 +11,7 @@ export default function Welcome () {
                 </div>
 
                 <div className="links">
-                    <a href="/">Home</a>
+                    <Link to="/chat">Chat</Link>
                     <Link to="/auth/login">Login</Link>
                     <Link to="/register">Register</Link>
                 </div>

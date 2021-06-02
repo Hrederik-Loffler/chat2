@@ -25,7 +25,6 @@ export default function Welcome() {
     async function signup(options) {
         try {
             const signupResp = await axios.post("/register", options);
-            // setCurrentUser({ id: options.id, name: options.name });
             return signupResp;
         } catch (e) {
             return e.response;
@@ -36,11 +35,16 @@ export default function Welcome() {
         e.preventDefault()
         const res = await signup(options)
 
+        const data = {"user": JSON.parse(res.config.data)}
+        const user = data.user.email
+        setCurrentUser({user})
+
 
         if (res.status == 422) {
             setError(res.data.errors)
         } else if (res.status === 201) {
             setError('')
+            history.push("/chat")
         } else {
             setError('Error')
         }
@@ -50,7 +54,7 @@ export default function Welcome() {
     return (
         <div className="joinOuterContainer">
             <div className="joinInnerContainer">
-                <h1 className="heading">Welcome</h1>
+                <h1 className="heading">Register</h1>
                 <form onSubmit={handleRegisterSubmit}>
                     <div>
                         <input
