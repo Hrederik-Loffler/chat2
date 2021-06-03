@@ -79,7 +79,7 @@ const Login = () => {
                 <div className="link-login">
                     <p className="mt-2 mb-0 text-center">
                         Don't have an account yet?{" "}
-                        <Link to="/">Register here</Link>.
+                        <Link to="/register">Register here</Link>.
                     </p>
                 </div>
                 {/*{error ? (<div className="alert alert-danger mt-2"><p>{error}</p></div>) : '' }*/}

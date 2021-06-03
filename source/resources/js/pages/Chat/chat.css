@@ -16,6 +16,10 @@
     width: 35%;
 }
 
+.Toastify__toast-body {
+    color: darkred;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     .outerContainer {
         height: 100%;

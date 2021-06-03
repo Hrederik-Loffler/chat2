@@ -43,23 +43,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import Echo from "laravel-echo"
 
-window.io = require('socket.io-client');
-
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001'
-});
-
-// let echo = new Echo({
+// window.io = require('socket.io-client');
+//
+// window.Echo = new Echo({
 //     broadcaster: 'socket.io',
-//     client: Socketio,
 //     host: window.location.hostname + ':6001'
 // });
-//
-// echo.channel('chat').listen('MessageSent', (e) => {
-//     console.log(e)
-//     // setMessages(messages.push(e))
-// })
+
 
 
 // window.io = require('socket.io-client')
@@ -81,6 +71,18 @@ const client = window.io = require('socket.io-client')
 //
 //
 // echo.channel('chat').listen('MessageSent', (e) => {
+//     console.log(e)
+//     // setMessages(messages.push(e))
+// })
+
+// let echo = new Echo({
+//     broadcaster: 'socket.io',
+//     client: Socketio,
+//     transports: ['websocket'],
+//     host: window.location.hostname + ':6001'
+// });
+//
+// echo.channel('chat').listen('.room.chat', (e) => {
 //     console.log(e)
 //     // setMessages(messages.push(e))
 // })

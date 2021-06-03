@@ -1,30 +1,12 @@
 import React, { useEffect } from "react";
-
 import './message.css'
 
-//I need to have here props " one <message>" and "name"
-//from Messages component where i try to map all messages to one message
-
-// const Message = ({ message: { user, text }, name }) => {
-//     let isSentByCurrentUser = false;
-//     /* i need a lowerCase name for backend */
-//     const trimmedName = name.trim().toLowerCase()
-//     //where i need put message
-//     if (user === trimmedName) {
-//         isSentByCurrentUser = true
-//     }
 const Message = ({ message, currentUser }) => {
     let isSentByCurrentUser = false;
-    /* i need a lowerCase name for backend */
-    // const trimmedName = name.trim().toLowerCase()
-    //where i need put message
+
     if (currentUser.user == message.user.email) {
         isSentByCurrentUser = true
     }
-
-    // useEffect(() => {
-    //     console.log(message.user.email)
-    // }, [])
 
     return (
         isSentByCurrentUser ?
@@ -47,5 +29,4 @@ const Message = ({ message, currentUser }) => {
             )
     )
 }
-
 export default Message;

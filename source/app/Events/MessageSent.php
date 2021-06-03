@@ -53,10 +53,19 @@ class MessageSent implements ShouldBroadcast
         return new Channel('chat');
     }
 
+    public function broadcastAs(): string
+    {
+        return 'room.chat';
+    }
+
     public function broadcastWith()
     {
+//        return [
+//            'key' => 'value'
+//        ];
         return [
-            $this->user => $this->message
+            'user' => $this->user,
+            'message' => $this->message
         ];
     }
 }

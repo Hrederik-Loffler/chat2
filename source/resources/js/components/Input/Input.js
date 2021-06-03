@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from "react";
-// import FlashMessage from 'react-flash-message';
 import axios from "axios";
-// import Echo from "laravel-echo";
-import Socketio from "socket.io-client";
 
 import './input.css'
 
-// const Input = ({ message, setMessage, sendMessage }) =>
 const Input = () => {
     const [message, setMessage] = useState('')
     const [error, setError] = useState('')
@@ -34,16 +30,8 @@ const Input = () => {
             setError('Invalid data')
             setMessage('')
         }
-        // messages.push(message)
-        // setMessages(messages)
         setMessage('')
     }
-
-    // const FlashMessage = (error) => (
-    //     <FlashMessage duration={5000}>
-    //         <strong>{error}</strong>
-    //     </FlashMessage>
-    // )
 
     return (
         <form className="form" onSubmit={handleMessageSubmit}>
@@ -54,7 +42,6 @@ const Input = () => {
                 placeholder="Type a message"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-
             />
             <button
                 className="sendButton"

@@ -29,7 +29,7 @@ class ChatsController extends Controller
      * Persist message to database
      *
      * @param  Request $request
-     * @return Response
+     * @return string[]
      */
     public function sendMessage(Request $request)
     {
@@ -39,8 +39,11 @@ class ChatsController extends Controller
             'message' => $request->input('message')
         ]);
 
-        broadcast(new MessageSent($user, $message))->toOthers();
+        event(new MessageSent($user, $message));
 
         return ['status' => 'Message Sent!'];
+//        return [
+//            $user => $message
+//        ];
     }
 }
