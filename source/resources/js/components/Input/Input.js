@@ -22,7 +22,7 @@ const Input = () => {
     const handleMessageSubmit = async (e) => {
         e.preventDefault()
         const res = await sendMessage(options)
-        console.log(res)
+        // console.log(res)
         if (res.status == 401) {
             setError('You are not authorized')
             setMessage('')

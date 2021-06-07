@@ -4141,8 +4141,8 @@ var Input = function Input() {
 
             case 3:
               res = _context.sent;
-              console.log(res);
 
+              // console.log(res)
               if (res.status == 401) {
                 setError('You are not authorized');
                 setMessage('');
@@ -4153,7 +4153,7 @@ var Input = function Input() {
 
               setMessage('');
 
-            case 7:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -4320,7 +4320,7 @@ var Messages = function Messages(_ref) {
     allMessages();
     var channel = window.Echo.channel('chat');
     channel.listen('.room.chat', function (e) {
-      console.log('listen', e.message);
+      // console.log('listen',e.message)
       var message = e.message;
       message.user = e.user;
       setMessages(function (state) {

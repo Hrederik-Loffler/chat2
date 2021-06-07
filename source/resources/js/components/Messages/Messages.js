@@ -27,7 +27,7 @@ const Messages = ({ currentUser }) => {
 
         let channel = window.Echo.channel('chat');
         channel.listen('.room.chat', function (e){
-            console.log('listen',e.message)
+            // console.log('listen',e.message)
             const message = e.message;
             message.user = e.user;
             setMessages((state)=> [...state, message])
